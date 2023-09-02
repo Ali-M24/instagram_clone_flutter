@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instgram_clone/screens/home_screen.dart';
 import 'package:instgram_clone/screens/signin_screen.dart';
 import 'package:instgram_clone/screens/splash_screen.dart';
 
@@ -38,7 +39,7 @@ class InstagramCloneApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: SigninScreen(),
+      home: HomeScreen(),
     );
   }
 }
