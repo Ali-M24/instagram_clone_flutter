@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:instgram_clone/constant/Colors.dart';
 
 class SwitchAccountScreen extends StatelessWidget {
   const SwitchAccountScreen({super.key});
@@ -86,7 +87,7 @@ class SwitchAccountScreen extends StatelessWidget {
                                 child: Text(
                                   'Confirm',
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: whiteColor,
                                     fontSize: 16,
                                   ),
                                 ),
@@ -124,7 +125,7 @@ class SwitchAccountScreen extends StatelessWidget {
                   Text(
                     'Sign up',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: whiteColor,
                       fontSize: 16.0,
                       fontFamily: 'GB',
                     ),

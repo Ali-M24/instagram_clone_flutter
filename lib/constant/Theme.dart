@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instgram_clone/constant/Colors.dart';
 
 ThemeData AppTheme() {
   return ThemeData(
@@ -13,10 +14,10 @@ TextTheme getTextTheme() {
         fontFamily: 'GB',
         fontSize: 16.0,
         fontWeight: FontWeight.w700,
-        color: Colors.white,
+        color: whiteColor,
       ),
       headlineLarge:
-          TextStyle(fontFamily: 'GB', fontSize: 20, color: Colors.white));
+          TextStyle(fontFamily: 'GB', fontSize: 20, color: whiteColor));
 }
 
 ElevatedButtonThemeData getElevatedButtonTheme() {

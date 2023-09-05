@@ -113,7 +113,7 @@ class _SigninScreenState extends State<SigninScreen> {
                           borderRadius: BorderRadius.all(
                             Radius.circular(15.0),
                           ),
-                          borderSide: BorderSide(color: GreyColor, width: 3),
+                          borderSide: BorderSide(color: greyColor, width: 3),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
@@ -126,7 +126,7 @@ class _SigninScreenState extends State<SigninScreen> {
                         labelStyle: TextStyle(
                           color: emailFocusNode.hasFocus
                               ? secondaryColor
-                              : Colors.white,
+                              : whiteColor,
                           fontSize: 14,
                         ),
                       ),
@@ -142,7 +142,7 @@ class _SigninScreenState extends State<SigninScreen> {
                           borderRadius: BorderRadius.all(
                             Radius.circular(15.0),
                           ),
-                          borderSide: BorderSide(color: GreyColor, width: 3),
+                          borderSide: BorderSide(color: greyColor, width: 3),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
@@ -155,7 +155,7 @@ class _SigninScreenState extends State<SigninScreen> {
                         labelStyle: TextStyle(
                           color: passwordFocusNode.hasFocus
                               ? secondaryColor
-                              : Colors.white,
+                              : whiteColor,
                           fontSize: 14,
                         ),
                       ),
@@ -185,7 +185,7 @@ class _SigninScreenState extends State<SigninScreen> {
                       Text(
                         'Sign up',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: whiteColor,
                           fontSize: 16.0,
                           fontFamily: 'GB',
                         ),

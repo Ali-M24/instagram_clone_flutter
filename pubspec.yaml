@@ -58,6 +58,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/images/stories/
+    - assets/icons/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -82,8 +84,6 @@ flutter:
         - asset: assets/fonts/GilroyMedium.ttf
           weight: 500
 
-          
-
     - family: GB
       fonts:
         - asset: assets/fonts/GilroyBold.ttf
@@ -93,7 +93,7 @@ flutter:
       fonts:
         - asset: assets/fonts/GilroyExtraBold.ttf
           weight: 800
-          
+
     - family: GH
       fonts:
         - asset: assets/fonts/GilroyHeavy.ttf
