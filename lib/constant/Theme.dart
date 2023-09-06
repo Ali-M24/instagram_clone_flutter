@@ -10,14 +10,18 @@ ThemeData AppTheme() {
 
 TextTheme getTextTheme() {
   return TextTheme(
-      headlineMedium: TextStyle(
-        fontFamily: 'GB',
-        fontSize: 16.0,
-        fontWeight: FontWeight.w700,
-        color: whiteColor,
-      ),
-      headlineLarge:
-          TextStyle(fontFamily: 'GB', fontSize: 20, color: whiteColor));
+    headlineMedium: TextStyle(
+      fontFamily: 'GB',
+      fontSize: 16.0,
+      fontWeight: FontWeight.w700,
+      color: whiteColor,
+    ),
+    headlineLarge: TextStyle(
+      fontFamily: 'GB',
+      fontSize: 20,
+      color: whiteColor,
+    ),
+  );
 }
 
 ElevatedButtonThemeData getElevatedButtonTheme() {

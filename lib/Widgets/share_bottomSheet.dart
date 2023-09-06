@@ -21,7 +21,6 @@ class Share_BottomSheet extends StatelessWidget {
         ),
         child: Container(
           padding: EdgeInsets.only(left: 42, right: 42),
-          height: 400,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
@@ -32,65 +31,132 @@ class Share_BottomSheet extends StatelessWidget {
               ],
             ),
           ),
-          child: _getShareSheetContent(),
+          child: _getShareSheetContent(context),
         ),
       ),
     );
   }
 
-  CustomScrollView _getShareSheetContent() {
-    return CustomScrollView(
-      controller: controller,
-      slivers: [
-        SliverToBoxAdapter(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image(
-                image:
-                    AssetImage('assets/icons/icon_bottomsheet_indicator.png'),
-              ),
-              SizedBox(height: 22),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  Widget _getShareSheetContent(BuildContext context) {
+    return Stack(
+      alignment: AlignmentDirectional.bottomCenter,
+      children: [
+        CustomScrollView(
+          controller: controller,
+          slivers: [
+            SliverToBoxAdapter(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    'Share',
-                    style: TextStyle(
-                        color: Colors.white, fontFamily: 'GB', fontSize: 24),
+                  SizedBox(height: 10),
+                  Image(
+                    image: AssetImage(
+                        'assets/icons/icon_bottomsheet_indicator.png'),
                   ),
-                  InkWell(
-                    onTap: () {},
-                    child: Image(
-                      image:
-                          AssetImage('assets/icons/icon_bottomsheet_share.png'),
+                  SizedBox(height: 22),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Share',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'GB',
+                            fontSize: 24),
+                      ),
+                      InkWell(
+                        onTap: () {},
+                        child: Image(
+                          image: AssetImage(
+                              'assets/icons/icon_bottomsheet_share.png'),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 28),
+                  Container(
+                    width: double.infinity,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      color: whiteColor.withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(13.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image(
+                            image: AssetImage(
+                              'assets/icons/icon_serach_shareBox.png',
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          Expanded(
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: 'search...',
+                                hintStyle: TextStyle(color: whiteColor),
+                                enabledBorder: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
+                  SizedBox(height: 32),
                 ],
               ),
-              SizedBox(height: 28),
-            ],
+            ),
+            SliverGrid(
+              delegate: SliverChildBuilderDelegate(
+                childCount: 50,
+                (context, index) {
+                  return Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(13),
+                        child: Image.asset(
+                          'assets/images/stories/story3.jpg',
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        'Alimmz',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: whiteColor,
+                          fontFamily: 'GB',
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              ),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20,
+                  mainAxisExtent: 110),
+            ),
+            SliverPadding(padding: EdgeInsets.only(bottom: 84))
+          ],
+        ),
+        Positioned(
+          bottom: 48,
+          child: ElevatedButton(
+            style: Theme.of(context).elevatedButtonTheme.style,
+            onPressed: () {},
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 36, vertical: 12),
+              child: Text('Send'),
+            ),
           ),
         ),
-        SliverGrid(
-          delegate: SliverChildBuilderDelegate(
-            childCount: 50,
-            (context, index) {
-              return Container(
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-              );
-            },
-          ),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 20,
-          ),
-        )
       ],
     );
   }

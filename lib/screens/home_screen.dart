@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: _getAppBar(),
-      body: _getHomePageBody(),
+      body: _getHomePageBody(context),
       bottomNavigationBar: _getBottomNavigationBar(),
     );
   }
@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Padding _getHomePageBody() {
+  Padding _getHomePageBody(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 12, left: 16, right: 16),
       child: CustomScrollView(
@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
             delegate: SliverChildBuilderDelegate(
               childCount: 10,
               (context, index) {
-                return _getPost();
+                return _getPost(context);
               },
             ),
           ),
@@ -106,27 +106,22 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // ListView _getPostList() {
-  //   return ListView.builder(
-  //     physics: NeverScrollableScrollPhysics(),
-  //     shrinkWrap: true,
-  //     itemCount: 9,
-  //     itemBuilder: (context, index) => _getPost(),
-  //   );
-  // }
-
-  Column _getPost() {
+  Column _getPost(BuildContext context) {
     return Column(
       children: [
         _getPostUserInfo(),
         SizedBox(height: 22),
-        _getPostContent('assets/images/stories/story1.jpg', 2.5, 500),
+        _getPostContent(context, 'assets/images/stories/story1.jpg', 2.5, 500),
       ],
     );
   }
 
   SizedBox _getPostContent(
-      String postImagePath, double likeCount, int commentCount) {
+    BuildContext context,
+    String postImagePath,
+    double likeCount,
+    int commentCount,
+  ) {
     return SizedBox(
       width: 394,
       height: 425,
@@ -221,15 +216,22 @@ class _HomeScreenState extends State<HomeScreen> {
                               backgroundColor: Colors.transparent,
                               isScrollControlled: true,
                               builder: (BuildContext context) {
-                                return DraggableScrollableSheet(
-                                  initialChildSize: 0.4,
-                                  minChildSize: 0.3,
-                                  maxChildSize: 0.7,
-                                  builder: (context, scrollController) {
-                                    return Share_BottomSheet(
-                                      controller: scrollController,
-                                    );
-                                  },
+                                return Padding(
+                                  padding: EdgeInsets.only(
+                                    bottom: MediaQuery.of(context)
+                                            .viewInsets
+                                            .bottom,
+                                  ),
+                                  child: DraggableScrollableSheet(
+                                    initialChildSize: 0.4,
+                                    minChildSize: 0.3,
+                                    maxChildSize: 0.7,
+                                    builder: (context, scrollController) {
+                                      return Share_BottomSheet(
+                                        controller: scrollController,
+                                      );
+                                    },
+                                  ),
                                 );
                               },
                             );
