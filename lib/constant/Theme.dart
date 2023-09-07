@@ -10,6 +10,12 @@ ThemeData AppTheme() {
 
 TextTheme getTextTheme() {
   return TextTheme(
+    headlineSmall: TextStyle(
+      fontFamily: 'GB',
+      fontSize: 12.0,
+      fontWeight: FontWeight.w700,
+      color: whiteColor,
+    ),
     headlineMedium: TextStyle(
       fontFamily: 'GB',
       fontSize: 16.0,
