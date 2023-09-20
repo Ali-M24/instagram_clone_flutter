@@ -22,48 +22,45 @@ class _ActivityScreenState extends State<ActivityScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: primaryColor,
-      body: Padding(
-        padding: const EdgeInsets.only(top: 36, left: 18, right: 18),
-        child: Column(
-          children: [
-            Container(
-              child: TabBar(
-                indicatorWeight: 2,
-                indicatorColor: secondaryColor,
-                controller: _tabController,
-                tabs: [
-                  Tab(
-                    child: Text(
-                      'Following',
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
+    return Padding(
+      padding: const EdgeInsets.only(top: 36, left: 18, right: 18),
+      child: Column(
+        children: [
+          Container(
+            child: TabBar(
+              indicatorWeight: 2,
+              indicatorColor: secondaryColor,
+              controller: _tabController,
+              tabs: [
+                Tab(
+                  child: Text(
+                    'Following',
+                    style: Theme.of(context).textTheme.headlineMedium,
                   ),
-                  Tab(
-                    child: Text(
-                      'You',
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
+                ),
+                Tab(
+                  child: Text(
+                    'You',
+                    style: Theme.of(context).textTheme.headlineMedium,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            Expanded(
-              child: TabBarView(
-                controller: _tabController,
-                children: [
-                  Container(
-                    color: Colors.green,
-                  ),
-                  Container(
-                    color: Colors.red,
-                  ),
-                ],
-              ),
+          ),
+          Expanded(
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                Container(
+                  color: Colors.green,
+                ),
+                Container(
+                  color: Colors.red,
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

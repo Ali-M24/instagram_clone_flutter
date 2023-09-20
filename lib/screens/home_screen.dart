@@ -14,61 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: primaryColor,
-      appBar: _getAppBar(),
-      body: _getHomePageBody(context),
-      bottomNavigationBar: _getBottomNavigationBar(),
-    );
-  }
-
-  ClipRRect _getBottomNavigationBar() {
-    return ClipRRect(
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(15),
-        topRight: Radius.circular(15),
-      ),
-      child: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed, // Fixed
-        backgroundColor: lightPrimaryColor, // <-- This works for fixed
-        selectedItemColor: secondaryColor,
-        unselectedItemColor: greyColor,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: [
-          BottomNavigationBarItem(
-            icon: Image(image: AssetImage('assets/icons/icon_home.png')),
-            activeIcon:
-                Image(image: AssetImage('assets/icons/icon_active_home.png')),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Image(
-                image: AssetImage('assets/icons/icon_search_navigation.png')),
-            activeIcon: Image(
-                image: AssetImage(
-                    'assets/icons/icon_search_navigation_active.png')),
-            label: 'Serach',
-          ),
-          BottomNavigationBarItem(
-            icon: Image(
-                image: AssetImage('assets/icons/icon_add_navigation.png')),
-            activeIcon: Image(
-                image:
-                    AssetImage('assets/icons/icon_add_navigation_active.png')),
-            label: 'Add',
-          ),
-          BottomNavigationBarItem(
-            icon: Image(
-                image: AssetImage('assets/icons/icon_activity_navigation.png')),
-            activeIcon: Image(
-                image: AssetImage(
-                    'assets/icons/icon_activity_navigation_active.png')),
-            label: 'Activity',
-          ),
-        ],
-      ),
-    );
+    return _getHomePageBody(context);
   }
 
   Padding _getHomePageBody(BuildContext context) {
@@ -94,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Container _getStorySection() {
     return Container(
-      height: 90,
+      height: 100,
       margin: EdgeInsets.only(bottom: 24),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -219,8 +165,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 return Padding(
                                   padding: EdgeInsets.only(
                                     bottom: MediaQuery.of(context)
-                                            .viewInsets
-                                            .bottom,
+                                        .viewInsets
+                                        .bottom,
                                   ),
                                   child: DraggableScrollableSheet(
                                     initialChildSize: 0.4,
@@ -394,29 +340,6 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             color: Colors.white,
             fontSize: 12,
-          ),
-        )
-      ],
-    );
-  }
-
-  AppBar _getAppBar() {
-    return AppBar(
-      backgroundColor: primaryColor,
-      elevation: 0,
-      title: Image(
-        width: 144,
-        height: 32,
-        image: AssetImage('assets/images/home_appbar_logo.png'),
-      ),
-      actions: [
-        Container(
-          margin: EdgeInsets.only(right: 8),
-          child: IconButton(
-            onPressed: () {},
-            icon: Image(
-              image: AssetImage('assets/icons/icon_direct.png'),
-            ),
           ),
         )
       ],
